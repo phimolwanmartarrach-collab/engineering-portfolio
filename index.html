@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio ผลงานรับเหมาก่อสร้าง</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:       #1A1A18;
+    --surface:  #242422;
+    --surface2: #2E2E2B;
+    --border:   #3A3A36;
+    --accent:   #E07B2A;
+    --accent2:  #F5A251;
+    --text:     #F0EDE6;
+    --muted:    #888780;
+    --danger:   #E24B4A;
+    --success:  #639922;
+    --radius:   6px;
+    --font-head: 'Bebas Neue', sans-serif;
+    --font-body: 'Sarabun', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+  body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.6; min-height:100vh; }
+
+  /* TOPBAR */
+  .topbar { background:var(--surface); border-bottom:1px solid var(--border); padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:60px; position:sticky; top:0; z-index:100; }
+  .topbar-brand { display:flex; align-items:center; gap:12px; }
+  .brand-icon { width:32px; height:32px; background:var(--accent); display:flex; align-items:center; justify-content:center; border-radius:4px; }
+  .brand-icon svg { width:18px; height:18px; fill:#fff; }
+  .brand-name { font-family:var(--font-head); font-size:22px; letter-spacing:2px; color:var(--text); }
+  .brand-sub { font-family:var(--font-mono); font-size:10px; color:var(--muted); letter-spacing:1px; display:block; margin-top:-4px; }
+  .tab-nav { display:flex; gap:4px; }
+  .tab-btn { background:none; border:none; color:var(--muted); font-family:var(--font-body); font-size:14px; font-weight:500; padding:8px 18px; border-radius:var(--radius); cursor:pointer; transition:all .2s; letter-spacing:.5px; }
+  .tab-btn:hover { color:var(--text); background:var(--surface2); }
+  .tab-btn.active { color:var(--accent); background:rgba(224,123,42,.12); }
+
+  /* MAIN */
+  .main { max-width:1200px; margin:0 auto; padding:40px 32px; }
+
+  /* HERO */
+  .hero { border:1px solid var(--border); border-radius:var(--radius); padding:48px 48px 40px; margin-bottom:40px; background:var(--surface); position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:0; right:0; width:300px; height:100%; background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(224,123,42,.04) 8px,rgba(224,123,42,.04) 9px); }
+  .hero-tag { font-family:var(--font-mono); font-size:11px; color:var(--accent); letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .hero-tag::before { content:''; display:inline-block; width:24px; height:2px; background:var(--accent); }
+  .hero h1 { font-family:var(--font-head); font-size:56px; letter-spacing:3px; line-height:1; color:var(--text); margin-bottom:12px; }
+  .hero h1 span { color:var(--accent); }
+  .hero p { color:var(--muted); font-size:15px; max-width:480px; margin-bottom:28px; }
+  .hero-stats { display:flex; gap:32px; }
+  .stat-num { font-family:var(--font-head); font-size:36px; color:var(--accent); letter-spacing:2px; line-height:1; }
+  .stat-label { font-family:var(--font-mono); font-size:11px; color:var(--muted); letter-spacing:1px; }
+
+  /* SECTION */
+  .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+  .section-title { font-family:var(--font-head); font-size:28px; letter-spacing:2px; color:var(--text); display:flex; align-items:center; gap:12px; }
+  .section-title::before { content:''; display:inline-block; width:4px; height:24px; background:var(--accent); border-radius:2px; }
+
+  /* GRID */
+  #portfolio-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px; }
+
+  /* CARD */
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:transform .2s, border-color .2s; cursor:pointer; }
+  .card:hover { transform:translateY(-3px); border-color:var(--accent); }
+
+  /* SLIDESHOW in card */
+  .card-slider { position:relative; height:210px; overflow:hidden; background:var(--surface2); }
+  .card-slider-inner { display:flex; height:100%; transition:transform .4s ease; }
+  .card-slide { min-width:100%; height:100%; flex-shrink:0; }
+  .card-slide img { width:100%; height:100%; object-fit:cover; display:block; }
+  .card-slide-empty { width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; }
+  .slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.55); border:none; color:#fff; width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:2; }
+  .slider-btn:hover { background:rgba(224,123,42,.8); }
+  .slider-btn.prev { left:8px; }
+  .slider-btn.next { right:8px; }
+  .slider-dots { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:2; }
+  .slider-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer; transition:background .2s; border:none; padding:0; }
+  .slider-dot.active { background:var(--accent); }
+  .img-count-badge { position:absolute; top:8px; right:8px; background:rgba(0,0,0,.6); color:#fff; font-family:var(--font-mono); font-size:11px; padding:3px 8px; border-radius:3px; z-index:2; }
+
+  .card-body { padding:16px 18px; }
+  .card-title { font-weight:600; font-size:15px; color:var(--text); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .card-meta { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+  .tag { font-family:var(--font-mono); font-size:11px; padding:3px 9px; border-radius:3px; background:var(--surface2); color:var(--muted); border:1px solid var(--border); }
+  .tag.accent { background:rgba(224,123,42,.15); color:var(--accent2); border-color:rgba(224,123,42,.3); }
+  .card-desc { font-size:13px; color:var(--muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  /* EMPTY */
+  .empty-state { grid-column:1/-1; text-align:center; padding:80px 20px; color:var(--muted); }
+  .empty-state p { font-size:14px; }
+
+  /* MODAL */
+  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:200; align-items:center; justify-content:center; padding:20px; }
+  .modal-overlay.open { display:flex; }
+  .modal { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); max-width:720px; width:100%; max-height:92vh; overflow-y:auto; position:relative; }
+
+  /* Modal slideshow */
+  .modal-slider { position:relative; background:#000; }
+  .modal-slider-inner { display:flex; transition:transform .4s ease; }
+  .modal-slide { min-width:100%; }
+  .modal-slide img { width:100%; max-height:420px; object-fit:contain; display:block; }
+  .modal-slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.6); border:none; color:#fff; width:38px; height:38px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:2; }
+  .modal-slider-btn:hover { background:rgba(224,123,42,.85); }
+  .modal-slider-btn.prev { left:12px; }
+  .modal-slider-btn.next { right:12px; }
+  .modal-slider-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:2; }
+  .modal-slider-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.35); cursor:pointer; border:none; padding:0; transition:background .2s; }
+  .modal-slider-dot.active { background:var(--accent); }
+  .modal-img-counter { position:absolute; bottom:10px; right:14px; font-family:var(--font-mono); font-size:12px; color:rgba(255,255,255,.7); z-index:2; }
+
+  .modal-body { padding:28px 32px; }
+  .modal-title { font-family:var(--font-head); font-size:28px; letter-spacing:2px; margin-bottom:16px; }
+  .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin-bottom:16px; }
+  .modal-field label { font-family:var(--font-mono); font-size:10px; letter-spacing:1px; color:var(--muted); margin-bottom:4px; text-transform:uppercase; }
+  .modal-field p { font-size:14px; color:var(--text); }
+  .modal-desc { font-size:14px; color:var(--muted); line-height:1.7; }
+  .modal-close { position:absolute; top:10px; right:14px; background:rgba(0,0,0,.5); border:none; color:#fff; font-size:20px; cursor:pointer; padding:4px 10px; border-radius:4px; z-index:10; transition:background .2s; }
+  .modal-close:hover { background:var(--danger); }
+
+  /* SPINNER */
+  .spinner { width:20px; height:20px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin .6s linear infinite; display:inline-block; vertical-align:middle; margin-right:8px; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  .page { display:none; }
+  .page.active { display:block; }
+
+  @media(max-width:640px){
+    .main{padding:24px 16px;} .topbar{padding:0 16px;} .brand-name{font-size:18px;}
+    .hero{padding:28px 20px;} .hero h1{font-size:36px;}
+    .hero-stats{gap:20px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
+    </div>
+    <div>
+      <span class="brand-name">PORTFOLIO</span>
+      <span class="brand-sub">CONSTRUCTION &amp; ENGINEERING</span>
+    </div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active">ผลงานทั้งหมด</button>
+  </nav>
+</header>
+
+<main class="main">
+  <div id="page-gallery" class="page active">
+    <div class="hero">
+      <div class="hero-tag">Construction Portfolio</div>
+      <h1>ผลงาน<span>ของเรา</span></h1>
+      <p>รวมผลงานก่อสร้างและวิศวกรรมคุณภาพสูง พร้อมให้ HR และผู้ว่าจ้างตรวจสอบได้ทันที</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num" id="stat-count">—</div><div class="stat-label">โปรเจกต์</div></div>
+        <div class="stat"><div class="stat-num" id="stat-clients">—</div><div class="stat-label">ลูกค้า</div></div>
+        <div class="stat"><div class="stat-num" id="stat-photos">—</div><div class="stat-label">รูปภาพ</div></div>
+      </div>
+    </div>
+    <div class="section-header">
+      <div class="section-title">ผลงานทั้งหมด</div>
+      <button onclick="loadPortfolio()" style="background:none;border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:var(--radius);cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:1px;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">↺ รีเฟรช</button>
+    </div>
+    <div id="portfolio-grid">
+      <div class="empty-state"><div class="spinner"></div><p style="margin-top:16px">กำลังโหลดข้อมูล...</p></div>
+    </div>
+  </div>
+</main>
+
+<div class="modal-overlay" id="modal" onclick="closeModalOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+    <div class="modal-slider" id="modal-slider">
+      <div class="modal-slider-inner" id="modal-slider-inner"></div>
+      <button class="modal-slider-btn prev" id="modal-prev" onclick="modalSlide(-1)">&#8249;</button>
+      <button class="modal-slider-btn next" id="modal-next" onclick="modalSlide(1)">&#8250;</button>
+      <div class="modal-slider-dots" id="modal-dots"></div>
+      <div class="modal-img-counter" id="modal-counter"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-grid">
+        <div class="modal-field"><label>ลูกค้า / บริษัท</label><p id="modal-client">—</p></div>
+        <div class="modal-field"><label>สถานที่</label><p id="modal-location">—</p></div>
+        <div class="modal-field"><label>ระยะเวลา</label><p id="modal-duration">—</p></div>
+        <div class="modal-field"><label>วันที่บันทึก</label><p id="modal-date">—</p></div>
+      </div>
+      <p class="modal-desc" id="modal-desc"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzZmZ9RXYEmuyhKDCqWL7v3VLbMBn056NXkpIypVldSxDvkZhcNbHNO7RHbmP7Vb_u6/exec";
+
+let modalImages   = [];
+let modalIdx      = 0;
+let cardSliders   = {};
+
+// ── Load Portfolio (เปลี่ยนมาใช้ fetch แทน google.script.run) ──────────
+function loadPortfolio() {
+  const grid = document.getElementById('portfolio-grid');
+  grid.innerHTML = '<div class="empty-state"><div class="spinner"></div><p style="margin-top:16px">กำลังโหลดข้อมูล...</p></div>';
+  cardSliders = {};
+  
+  fetch(WEB_APP_URL)
+    .then(response => response.json())
+    .then(data => {
+      // แปลงข้อมูล JSON จาก API ให้กลับมาเป็น Array รูปแบบเดิมที่โค้ดคุณใช้
+      const formattedRows = data.map(obj => [
+        obj['วันที่บันทึก'],
+        obj['ชื่อโปรเจกต์'],
+        obj['ชื่อลูกค้า / บริษัท'],
+        obj['สถานที่'],
+        obj['ระยะเวลา'],
+        obj['คำอธิบายงาน'],
+        obj['รูปภาพ URLs (คั่นด้วย |)']
+      ]);
+      renderCards(formattedRows);
+    })
+    .catch(error => {
+      console.error(error);
+      grid.innerHTML = '<div class="empty-state"><p>ไม่สามารถโหลดข้อมูลได้ หรือลิงก์ API ผิดพลาด</p></div>';
+    });
+}
+
+function renderCards(rows) {
+  const grid = document.getElementById('portfolio-grid');
+  if (!rows || rows.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.3;margin-bottom:12px"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><p>ยังไม่มีผลงาน</p></div>`;
+    return;
+  }
+
+  let totalPhotos = 0;
+  const clients = new Set();
+  const reversed = [...rows].reverse();
+
+  grid.innerHTML = reversed.map((r, i) => {
+    const [date, name, client, loc, dur, desc, imgRaw] = r;
+    const imgs = imgRaw ? String(imgRaw).split('|').filter(Boolean) : [];
+    totalPhotos += imgs.length;
+    if (client) clients.add(client);
+    const dateStr = date ? new Date(date).toLocaleDateString('th-TH',{year:'numeric',month:'short',day:'numeric'}) : '';
+    const slides  = imgs.length > 0
+      ? imgs.map(u => `<div class="card-slide"><img src="${u}" alt="${name}" loading="lazy" onerror="this.style.display='none'"></div>`).join('')
+      : `<div class="card-slide"><div class="card-slide-empty">ไม่มีรูปภาพ</div></div>`;
+
+    const multiControls = imgs.length > 1 ? `
+      <button class="slider-btn prev" onclick="cardSlide(event,${i},-1)">&#8249;</button>
+      <button class="slider-btn next" onclick="cardSlide(event,${i},1)">&#8250;</button>
+      <div class="slider-dots">${imgs.map((_,di) => `<button class="slider-dot${di===0?' active':''}" onclick="cardSlideTo(event,${i},${di})"></button>`).join('')}</div>
+      <div class="img-count-badge">${imgs.length} รูป</div>` : '';
+
+    const safeR = JSON.stringify(r).replace(/"/g,'&quot;');
+    return `
+      <div class="card" onclick="openModal(${safeR})">
+        <div class="card-slider" id="slider-${i}">
+          <div class="card-slider-inner" id="slider-inner-${i}">${slides}</div>
+          ${multiControls}
+        </div>
+        <div class="card-body">
+          <div class="card-title">${name||'—'}</div>
+          <div class="card-meta">
+            ${client?`<span class="tag accent">${client}</span>`:''}
+            ${loc?`<span class="tag">📍 ${loc}</span>`:''}
+            ${dur?`<span class="tag">⏱ ${dur}</span>`:''}
+          </div>
+          <div class="card-desc">${desc||'<em style="opacity:.5">ไม่มีคำอธิบาย</em>'}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  reversed.forEach((r, i) => {
+    cardSliders[i] = { idx: 0, total: (r[6] ? String(r[6]).split('|').filter(Boolean).length : 0) };
+  });
+
+  document.getElementById('stat-count').textContent   = rows.length;
+  document.getElementById('stat-clients').textContent = clients.size;
+  document.getElementById('stat-photos').textContent  = totalPhotos;
+}
+
+// ── Card Slider ────────────────────────────────────────────────────────────
+function cardSlide(e, id, dir) {
+  e.stopPropagation();
+  const s = cardSliders[id];
+  if (!s || s.total <= 1) return;
+  s.idx = (s.idx + dir + s.total) % s.total;
+  applyCardSlider(id);
+}
+function cardSlideTo(e, id, idx) {
+  e.stopPropagation();
+  cardSliders[id].idx = idx;
+  applyCardSlider(id);
+}
+function applyCardSlider(id) {
+  const s = cardSliders[id];
+  const inner = document.getElementById('slider-inner-' + id);
+  if (inner) inner.style.transform = `translateX(-${s.idx * 100}%)`;
+  const dots = document.querySelectorAll(`#slider-${id} .slider-dot`);
+  dots.forEach((d, i) => d.classList.toggle('active', i === s.idx));
+}
+
+// ── Modal ──────────────────────────────────────────────────────────────────
+function openModal(r) {
+  const [date, name, client, loc, dur, desc, imgRaw] = r;
+  modalImages = imgRaw ? String(imgRaw).split('|').filter(Boolean) : [];
+  modalIdx = 0;
+
+  const inner = document.getElementById('modal-slider-inner');
+  inner.innerHTML = modalImages.length > 0
+    ? modalImages.map(u => `<div class="modal-slide"><img src="${u}" alt="${name}"></div>`).join('')
+    : '';
+
+  document.getElementById('modal-slider').style.display = modalImages.length > 0 ? 'block' : 'none';
+  document.getElementById('modal-prev').style.display   = modalImages.length > 1 ? 'flex' : 'none';
+  document.getElementById('modal-next').style.display   = modalImages.length > 1 ? 'flex' : 'none';
+
+  const dotsEl = document.getElementById('modal-dots');
+  dotsEl.innerHTML = modalImages.length > 1
+    ? modalImages.map((_,i) => `<button class="modal-slider-dot${i===0?' active':''}" onclick="modalSlideTo(${i})"></button>`).join('') : '';
+
+  updateModalCounter();
+  document.getElementById('modal-title').textContent    = name||'—';
+  document.getElementById('modal-client').textContent   = client||'—';
+  document.getElementById('modal-location').textContent = loc||'—';
+  document.getElementById('modal-duration').textContent = dur||'—';
+  
+  // แปลงวันที่ ถ้ามีข้อมูล
+  let dateText = '—';
+  if (date) {
+    const d = new Date(date);
+    if (!isNaN(d.getTime())) {
+      dateText = d.toLocaleDateString('th-TH',{year:'numeric',month:'long',day:'numeric'});
+    }
+  }
+  document.getElementById('modal-date').textContent = dateText;
+  document.getElementById('modal-desc').textContent = desc||'ไม่มีคำอธิบาย';
+  document.getElementById('modal').classList.add('open');
+}
+
+function modalSlide(dir) {
+  if (modalImages.length <= 1) return;
+  modalIdx = (modalIdx + dir + modalImages.length) % modalImages.length;
+  applyModalSlider();
+}
+function modalSlideTo(idx) {
+  modalIdx = idx;
+  applyModalSlider();
+}
+function applyModalSlider() {
+  document.getElementById('modal-slider-inner').style.transform = `translateX(-${modalIdx * 100}%)`;
+  document.querySelectorAll('.modal-slider-dot').forEach((d, i) => d.classList.toggle('active', i === modalIdx));
+  updateModalCounter();
+}
+function updateModalCounter() {
+  const el = document.getElementById('modal-counter');
+  el.textContent = modalImages.length > 1 ? `${modalIdx+1} / ${modalImages.length}` : '';
+}
+function closeModalOverlay(e) {
+  if (e.target === document.getElementById('modal')) document.getElementById('modal').classList.remove('open');
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+window.onload = loadPortfolio;
+</script>
+</body>
+</html>
