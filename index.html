@@ -3,395 +3,419 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio ของฉัน</title>
+  <title>PORTFOLIO · ผลงานรับเหมาก่อสร้าง</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e0e0e;
+      --surface: #1a1a1a;
+      --card: #202020;
+      --accent: #e8b84b;
+      --accent2: #c9360c;
+      --text: #f0ece4;
+      --muted: #6b6560;
+      --border: #2a2a2a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(14,14,14,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 4px; }
+    .logo span { color: var(--accent); }
+    .upload-btn {
+      background: var(--accent); color: #0e0e0e; border: none;
+      padding: 9px 20px; border-radius: 4px;
+      font-family: 'Sarabun', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; letter-spacing: 1px;
+      transition: background 0.2s, transform 0.1s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .upload-btn:hover { background: #f5c85a; transform: translateY(-1px); }
+    .hero { padding: 60px 24px 40px; max-width: 960px; margin: 0 auto; }
+    .hero-label { font-size: 11px; letter-spacing: 4px; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
+    .hero h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.8rem, 8vw, 5rem); letter-spacing: 3px; line-height: 1; }
+    .hero h2 em { font-style: normal; color: var(--accent2); }
+    .hero-desc { margin-top: 16px; color: var(--muted); font-size: 15px; max-width: 400px; line-height: 1.7; }
+    .divider { width: 48px; height: 2px; background: var(--accent); margin: 24px 0; }
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EK2X2GDBML"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    /* Gallery */
+    .gallery-section { padding: 0 24px 60px; max-width: 960px; margin: 0 auto; }
+    .gallery-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .gallery-meta span { font-size: 12px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
 
-    gtag('config', 'G-EK2X2GDBML');
-  </script>
-  </head>
-<body>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio ผลงานรับเหมาก่อสร้าง</title>
-<meta name="description" content="รวมพอร์ตโฟลิโอผลงานรับเหมาก่อสร้างและวิศวกรรมคุณภาพสูง รับงานก่อสร้าง อาคาร ตรวจสอบผลงานและประวัติการทำงานของเราได้ที่นี่">
-<meta name="keywords" content="รับเหมาก่อสร้าง, วิศวกรรม, พอร์ตโฟลิโอ, ผลงานก่อสร้าง, ช่างรับเหมา, สร้างบ้าน, ต่อเติมบ้าน">
-<meta property="og:title" content="Portfolio ผลงานรับเหมาก่อสร้าง">
-<meta property="og:description" content="K2S CONSTRUCTION">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg:       #1A1A18;
-    --surface:  #242422;
-    --surface2: #2E2E2B;
-    --border:   #3A3A36;
-    --accent:   #E07B2A;
-    --accent2:  #F5A251;
-    --text:     #F0EDE6;
-    --muted:    #888780;
-    --danger:   #E24B4A;
-    --success:  #639922;
-    --radius:   6px;
-    --font-head: 'Bebas Neue', sans-serif;
-    --font-body: 'Sarabun', sans-serif;
-    --font-mono: 'IBM Plex Mono', monospace;
-  }
-  body { background:var(--bg); color:var(--text); font-family:var(--font-body); font-size:15px; line-height:1.6; min-height:100vh; }
+    /* Card */
+    .img-card {
+      border-radius: 6px; overflow: hidden;
+      background: var(--card); cursor: pointer;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .img-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .img-card .thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+    .img-card .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+    .img-card:hover .thumb img { transform: scale(1.05); }
+    .card-info { padding: 14px 16px; }
+    .card-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .meta-tag {
+      font-size: 11px; padding: 3px 8px; border-radius: 3px;
+      background: var(--surface); color: var(--muted);
+      border: 1px solid var(--border); letter-spacing: 0.5px;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .meta-tag.accent { border-color: rgba(232,184,75,0.3); color: var(--accent); }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-  /* TOPBAR */
-  .topbar { background:var(--surface); border-bottom:1px solid var(--border); padding:0 32px; display:flex; align-items:center; justify-content:space-between; height:60px; position:sticky; top:0; z-index:100; }
-  .topbar-brand { display:flex; align-items:center; gap:12px; }
-  .brand-icon { width:32px; height:32px; background:var(--accent); display:flex; align-items:center; justify-content:center; border-radius:4px; }
-  .brand-icon svg { width:18px; height:18px; fill:#fff; }
-  .brand-name { font-family:var(--font-head); font-size:22px; letter-spacing:2px; color:var(--text); }
-  .brand-sub { font-family:var(--font-mono); font-size:10px; color:var(--muted); letter-spacing:1px; display:block; margin-top:-4px; }
-  .tab-nav { display:flex; gap:4px; }
-  .tab-btn { background:none; border:none; color:var(--muted); font-family:var(--font-body); font-size:14px; font-weight:500; padding:8px 18px; border-radius:var(--radius); cursor:pointer; transition:all .2s; letter-spacing:.5px; }
-  .tab-btn:hover { color:var(--text); background:var(--surface2); }
-  .tab-btn.active { color:var(--accent); background:rgba(224,123,42,.12); }
+    .empty { grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--muted); }
+    .empty .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.4; }
+    .loading { text-align: center; padding: 80px; color: var(--muted); font-size: 13px; letter-spacing: 2px; }
+    .spinner { width: 32px; height: 32px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* MAIN */
-  .main { max-width:1200px; margin:0 auto; padding:40px 32px; }
+    /* Modal */
+    .overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88); z-index: 200;
+      align-items: center; justify-content: center;
+      padding: 20px; backdrop-filter: blur(6px);
+      overflow-y: auto;
+    }
+    .overlay.open { display: flex; }
+    .modal {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; padding: 28px; width: 100%; max-width: 460px;
+      animation: slideUp 0.25s ease; margin: auto;
+    }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .modal-header h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 3px; }
+    .modal-close { background: none; border: none; color: var(--muted); font-size: 1.4rem; cursor: pointer; }
+    .modal-close:hover { color: var(--text); }
 
-  /* HERO */
-  .hero { border:1px solid var(--border); border-radius:var(--radius); padding:48px 48px 40px; margin-bottom:40px; background:var(--surface); position:relative; overflow:hidden; }
-  .hero::before { content:''; position:absolute; top:0; right:0; width:300px; height:100%; background:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(224,123,42,.04) 8px,rgba(224,123,42,.04) 9px); }
-  .hero-tag { font-family:var(--font-mono); font-size:11px; color:var(--accent); letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
-  .hero-tag::before { content:''; display:inline-block; width:24px; height:2px; background:var(--accent); }
-  .hero h1 { font-family:var(--font-head); font-size:56px; letter-spacing:3px; line-height:1; color:var(--text); margin-bottom:12px; }
-  .hero h1 span { color:var(--accent); }
-  .hero p { color:var(--muted); font-size:15px; max-width:480px; margin-bottom:28px; }
-  .hero-stats { display:flex; gap:32px; }
-  .stat-num { font-family:var(--font-head); font-size:36px; color:var(--accent); letter-spacing:2px; line-height:1; }
-  .stat-label { font-family:var(--font-mono); font-size:11px; color:var(--muted); letter-spacing:1px; }
+    .drop-zone {
+      border: 1px dashed var(--muted); border-radius: 6px;
+      padding: 28px 20px; text-align: center; cursor: pointer;
+      transition: border-color 0.2s, background 0.2s; margin-bottom: 16px;
+    }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--accent); background: rgba(232,184,75,0.04); }
+    .drop-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .drop-label { font-size: 14px; color: var(--text); }
+    .drop-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    input[type="file"] { display: none; }
 
-  /* SECTION */
-  .section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
-  .section-title { font-family:var(--font-head); font-size:28px; letter-spacing:2px; color:var(--text); display:flex; align-items:center; gap:12px; }
-  .section-title::before { content:''; display:inline-block; width:4px; height:24px; background:var(--accent); border-radius:2px; }
+    .preview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
+    .preview-item { aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: var(--card); }
+    .preview-item img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* GRID */
-  #portfolio-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:20px; }
+    /* Form fields */
+    .field { margin-bottom: 14px; }
+    .field label { display: block; font-size: 12px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+    .field input, .field textarea {
+      width: 100%; padding: 10px 12px;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text);
+      font-family: 'Sarabun', sans-serif; font-size: 14px;
+      transition: border-color 0.2s; resize: none;
+    }
+    .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
-  /* CARD */
-  .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:transform .2s, border-color .2s; cursor:pointer; }
-  .card:hover { transform:translateY(-3px); border-color:var(--accent); }
+    .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: 16px; overflow: hidden; display: none; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s; width: 0%; }
 
-  /* SLIDESHOW in card */
-  .card-slider { position:relative; height:210px; overflow:hidden; background:var(--surface2); }
-  .card-slider-inner { display:flex; height:100%; transition:transform .4s ease; }
-  .card-slide { min-width:100%; height:100%; flex-shrink:0; }
-  .card-slide img { width:100%; height:100%; object-fit:cover; display:block; }
-  .card-slide-empty { width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:13px; }
-  .slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.55); border:none; color:#fff; width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:2; }
-  .slider-btn:hover { background:rgba(224,123,42,.8); }
-  .slider-btn.prev { left:8px; }
-  .slider-btn.next { right:8px; }
-  .slider-dots { position:absolute; bottom:8px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:2; }
-  .slider-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.4); cursor:pointer; transition:background .2s; border:none; padding:0; }
-  .slider-dot.active { background:var(--accent); }
-  .img-count-badge { position:absolute; top:8px; right:8px; background:rgba(0,0,0,.6); color:#fff; font-family:var(--font-mono); font-size:11px; padding:3px 8px; border-radius:3px; z-index:2; }
+    .modal-footer { display: flex; gap: 10px; margin-top: 16px; }
+    .btn-cancel { flex: 1; padding: 12px; background: transparent; color: var(--muted); border: 1px solid var(--border); border-radius: 4px; cursor: pointer; font-family: 'Sarabun', sans-serif; font-size: 14px; }
+    .btn-cancel:hover { color: var(--text); border-color: var(--muted); }
+    .btn-upload { flex: 2; padding: 12px; background: var(--accent); color: #0e0e0e; border: none; border-radius: 4px; cursor: pointer; font-family: 'Sarabun', sans-serif; font-size: 14px; font-weight: 700; }
+    .btn-upload:hover { background: #f5c85a; }
+    .btn-upload:disabled { background: var(--border); color: var(--muted); cursor: not-allowed; }
+    .status-msg { text-align: center; font-size: 13px; margin-top: 12px; min-height: 18px; color: var(--muted); }
+    .status-msg.ok { color: #68d391; }
+    .status-msg.err { color: #fc8181; }
 
-  .card-body { padding:16px 18px; }
-  .card-title { font-weight:600; font-size:15px; color:var(--text); margin-bottom:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .card-meta { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
-  .tag { font-family:var(--font-mono); font-size:11px; padding:3px 9px; border-radius:3px; background:var(--surface2); color:var(--muted); border:1px solid var(--border); }
-  .tag.accent { background:rgba(224,123,42,.15); color:var(--accent2); border-color:rgba(224,123,42,.3); }
-  .card-desc { font-size:13px; color:var(--muted); display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 300; }
+    .lightbox.open { display: flex; }
+    .lb-inner { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; gap: 0; }
+    .lb-img-wrap { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; max-height: 100vh; }
+    .lb-img-wrap img { max-width: 100%; max-height: 90vh; border-radius: 4px; object-fit: contain; }
+    .lb-detail {
+      width: 280px; min-width: 280px; height: 100%;
+      background: var(--surface); border-left: 1px solid var(--border);
+      padding: 28px 24px; overflow-y: auto;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .lb-detail-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; line-height: 1.2; }
+    .lb-detail-item { display: flex; flex-direction: column; gap: 4px; }
+    .lb-detail-item .lbl { font-size: 11px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
+    .lb-detail-item .val { font-size: 14px; color: var(--text); line-height: 1.6; }
+    .lb-close { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--muted); font-size: 1.8rem; cursor: pointer; z-index: 10; }
+    .lb-close:hover { color: var(--text); }
 
-  /* EMPTY */
-  .empty-state { grid-column:1/-1; text-align:center; padding:80px 20px; color:var(--muted); }
-  .empty-state p { font-size:14px; }
-
-  /* MODAL */
-  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:200; align-items:center; justify-content:center; padding:20px; }
-  .modal-overlay.open { display:flex; }
-  .modal { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); max-width:720px; width:100%; max-height:92vh; overflow-y:auto; position:relative; }
-
-  /* Modal slideshow */
-  .modal-slider { position:relative; background:#000; }
-  .modal-slider-inner { display:flex; transition:transform .4s ease; }
-  .modal-slide { min-width:100%; }
-  .modal-slide img { width:100%; max-height:420px; object-fit:contain; display:block; }
-  .modal-slider-btn { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,.6); border:none; color:#fff; width:38px; height:38px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:2; }
-  .modal-slider-btn:hover { background:rgba(224,123,42,.85); }
-  .modal-slider-btn.prev { left:12px; }
-  .modal-slider-btn.next { right:12px; }
-  .modal-slider-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:6px; z-index:2; }
-  .modal-slider-dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.35); cursor:pointer; border:none; padding:0; transition:background .2s; }
-  .modal-slider-dot.active { background:var(--accent); }
-  .modal-img-counter { position:absolute; bottom:10px; right:14px; font-family:var(--font-mono); font-size:12px; color:rgba(255,255,255,.7); z-index:2; }
-
-  .modal-body { padding:28px 32px; }
-  .modal-title { font-family:var(--font-head); font-size:28px; letter-spacing:2px; margin-bottom:16px; }
-  .modal-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin-bottom:16px; }
-  .modal-field label { font-family:var(--font-mono); font-size:10px; letter-spacing:1px; color:var(--muted); margin-bottom:4px; text-transform:uppercase; }
-  .modal-field p { font-size:14px; color:var(--text); }
-  .modal-desc { font-size:14px; color:var(--muted); line-height:1.7; }
-  .modal-close { position:absolute; top:10px; right:14px; background:rgba(0,0,0,.5); border:none; color:#fff; font-size:20px; cursor:pointer; padding:4px 10px; border-radius:4px; z-index:10; transition:background .2s; }
-  .modal-close:hover { background:var(--danger); }
-
-  /* SPINNER */
-  .spinner { width:20px; height:20px; border:2px solid var(--border); border-top-color:var(--accent); border-radius:50%; animation:spin .6s linear infinite; display:inline-block; vertical-align:middle; margin-right:8px; }
-  @keyframes spin { to { transform:rotate(360deg); } }
-
-  .page { display:none; }
-  .page.active { display:block; }
-
-  @media(max-width:640px){
-    .main{padding:24px 16px;} .topbar{padding:0 16px;} .brand-name{font-size:18px;}
-    .hero{padding:28px 20px;} .hero h1{font-size:36px;}
-    .hero-stats{gap:20px;}
-  }
-</style>
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .lb-inner { flex-direction: column; }
+      .lb-detail { width: 100%; min-width: unset; height: auto; border-left: none; border-top: 1px solid var(--border); }
+      .lb-img-wrap { padding: 16px 16px 0; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-brand">
-    <div class="brand-icon">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22" fill="none" stroke="#fff" stroke-width="1.5"/></svg>
-    </div>
-    <div>
-      <span class="brand-name">PORTFOLIO</span>
-      <span class="brand-sub">CONSTRUCTION &amp; ENGINEERING</span>
-    </div>
-  </div>
-  <nav class="tab-nav">
-    <button class="tab-btn active">ผลงานทั้งหมด</button>
-  </nav>
+<header>
+  <div class="logo">PORT<span>·</span>FOLIO</div>
+  <button class="upload-btn" onclick="openModal()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+    อัปโหลดผลงาน
+  </button>
 </header>
 
-<main class="main">
-  <div id="page-gallery" class="page active">
-    <div class="hero">
-      <div class="hero-tag">Construction Portfolio</div>
-      <h1>ผลงาน<span>ของเรา</span></h1>
-      <p>รวมผลงานก่อสร้างและวิศวกรรมคุณภาพสูง พร้อมให้ HR และผู้ว่าจ้างตรวจสอบได้ทันที</p>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num" id="stat-count">—</div><div class="stat-label">โปรเจกต์</div></div>
-        <div class="stat"><div class="stat-num" id="stat-clients">—</div><div class="stat-label">ลูกค้า</div></div>
-        <div class="stat"><div class="stat-num" id="stat-photos">—</div><div class="stat-label">รูปภาพ</div></div>
-      </div>
-    <!-- ส่วนข้อมูลการติดต่อ -->
-      <div style="margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; gap: 24px; flex-wrap: wrap;">
-        <!-- เบอร์โทร -->
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          <span style="color: var(--text); font-size: 16px; font-weight: 500;">โทร: 0802569277 หรือ 0926377090</span>
-        </div>
-      </div>
-    <div class="section-header">
-      <div class="section-title">ผลงานทั้งหมด</div>
-      <button onclick="loadPortfolio()" style="background:none;border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:var(--radius);cursor:pointer;font-family:var(--font-mono);font-size:11px;letter-spacing:1px;transition:all .2s" onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--muted)'">↺ รีเฟรช</button>
-    </div>
-    <div id="portfolio-grid">
-      <div class="empty-state"><div class="spinner"></div><p style="margin-top:16px">กำลังโหลดข้อมูล...</p></div>
-    </div>
-  </div>
-</main>
+<section class="hero">
+  <p class="hero-label">ผลงานรับเหมาก่อสร้าง</p>
+  <h2>BUILD<br><em>PORTFOLIO</em></h2>
+  <div class="divider"></div>
+  <p class="hero-desc">รวมผลงานก่อสร้างทั้งหมด กดรูปเพื่อดูรายละเอียด</p>
+</section>
 
-<div class="modal-overlay" id="modal" onclick="closeModalOverlay(event)">
+<section class="gallery-section">
+  <div class="gallery-meta">
+    <span id="countLabel">กำลังโหลด...</span>
+  </div>
+  <div class="gallery" id="gallery">
+    <div class="loading"><div class="spinner"></div>LOADING...</div>
+  </div>
+</section>
+
+<!-- Upload Modal -->
+<div class="overlay" id="overlay">
   <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
-    <div class="modal-slider" id="modal-slider">
-      <div class="modal-slider-inner" id="modal-slider-inner"></div>
-      <button class="modal-slider-btn prev" id="modal-prev" onclick="modalSlide(-1)">&#8249;</button>
-      <button class="modal-slider-btn next" id="modal-next" onclick="modalSlide(1)">&#8250;</button>
-      <div class="modal-slider-dots" id="modal-dots"></div>
-      <div class="modal-img-counter" id="modal-counter"></div>
+    <div class="modal-header">
+      <h3>อัปโหลดผลงาน</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
-    <div class="modal-body">
-      <div class="modal-title" id="modal-title"></div>
-      <div class="modal-grid">
-        <div class="modal-field"><label>ลูกค้า / บริษัท</label><p id="modal-client">—</p></div>
-        <div class="modal-field"><label>สถานที่</label><p id="modal-location">—</p></div>
-        <div class="modal-field"><label>ระยะเวลา</label><p id="modal-duration">—</p></div>
-        <div class="modal-field"><label>วันที่บันทึก</label><p id="modal-date">—</p></div>
+
+    <div class="drop-zone" id="dropZone"
+         onclick="document.getElementById('fileInput').click()"
+         ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFiles(event)">
+      <div class="drop-icon">📸</div>
+      <div class="drop-label" id="dropLabel">คลิกหรือลากรูปมาวางตรงนี้</div>
+      <div class="drop-sub">JPG, PNG, WEBP — อัปได้หลายรูปพร้อมกัน</div>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" multiple onchange="filesSelected(this)">
+    <div class="preview-grid" id="previewGrid" style="display:none"></div>
+
+    <div class="field">
+      <label>ชื่อโปรเจกต์ / งาน *</label>
+      <input type="text" id="fTitle" placeholder="เช่น ต่อเติมบ้าน 2 ชั้น">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label>ผู้ว่าจ้าง</label>
+        <input type="text" id="fClient" placeholder="เช่น คุณสมชาย">
       </div>
-      <p class="modal-desc" id="modal-desc"></p>
+      <div class="field">
+        <label>ระยะเวลา</label>
+        <input type="text" id="fDuration" placeholder="เช่น 45 วัน">
+      </div>
     </div>
+    <div class="field">
+      <label>สถานที่</label>
+      <input type="text" id="fLocation" placeholder="เช่น อ.เมือง ขอนแก่น">
+    </div>
+    <div class="field">
+      <label>รายละเอียดเพิ่มเติม</label>
+      <textarea id="fDesc" rows="3" placeholder="เช่น งานเทพื้น, ก่อผนัง, มุงหลังคา..."></textarea>
+    </div>
+
+    <div class="progress-bar" id="progressBar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">ยกเลิก</button>
+      <button class="btn-upload" id="uploadBtn" onclick="startUpload()">📨 อัปโหลด</button>
+    </div>
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <div class="lb-inner">
+    <div class="lb-img-wrap">
+      <img id="lbImg" src="" alt="">
+    </div>
+    <div class="lb-detail" id="lbDetail"></div>
   </div>
 </div>
 
 <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzZmZ9RXYEmuyhKDCqWL7v3VLbMBn056NXkpIypVldSxDvkZhcNbHNO7RHbmP7Vb_u6/exec";
+  const CLOUD_NAME = 'dmpwrvqmp';
+  const UPLOAD_PRESET = 'j16i4rpo';
+  const STORAGE_KEY = 'portfolio_images_v2';
 
-let modalImages   = [];
-let modalIdx      = 0;
-let cardSliders   = {};
+  let selectedFiles = [];
+  let allImages = [];
 
-// ── Load Portfolio (เปลี่ยนมาใช้ fetch แทน google.script.run) ──────────
-function loadPortfolio() {
-  const grid = document.getElementById('portfolio-grid');
-  grid.innerHTML = '<div class="empty-state"><div class="spinner"></div><p style="margin-top:16px">กำลังโหลดข้อมูล...</p></div>';
-  cardSliders = {};
-  
-  fetch(WEB_APP_URL)
-    .then(response => response.json())
-    .then(data => {
-      // แปลงข้อมูล JSON จาก API ให้กลับมาเป็น Array รูปแบบเดิมที่โค้ดคุณใช้
-      const formattedRows = data.map(obj => [
-        obj['วันที่บันทึก'],
-        obj['ชื่อโปรเจกต์'],
-        obj['ชื่อลูกค้า / บริษัท'],
-        obj['สถานที่'],
-        obj['ระยะเวลา'],
-        obj['คำอธิบายงาน'],
-        obj['รูปภาพ URLs (คั่นด้วย |)']
-      ]);
-      renderCards(formattedRows);
-    })
-    .catch(error => {
-      console.error(error);
-      grid.innerHTML = '<div class="empty-state"><p>ไม่สามารถโหลดข้อมูลได้ หรือลิงก์ API ผิดพลาด</p></div>';
+  function saveImages(imgs) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(imgs)); } catch(e) {} }
+  function loadImages() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e) { return []; } }
+
+  function renderGallery(imgs) {
+    const gallery = document.getElementById('gallery');
+    document.getElementById('countLabel').textContent = 'ผลงานทั้งหมด ' + imgs.length + ' รายการ';
+    if (!imgs.length) {
+      gallery.innerHTML = '<div class="empty"><div class="empty-icon">🏗️</div><p>ยังไม่มีผลงาน<br>กดปุ่ม "อัปโหลดผลงาน" เพื่อเริ่มต้น</p></div>';
+      return;
+    }
+    gallery.innerHTML = '';
+    imgs.slice().reverse().forEach(function(img, i) {
+      const card = document.createElement('div');
+      card.className = 'img-card';
+      const metaTags = [];
+      if (img.client) metaTags.push('<span class="meta-tag">👤 ' + img.client + '</span>');
+      if (img.duration) metaTags.push('<span class="meta-tag accent">⏱ ' + img.duration + '</span>');
+      if (img.location) metaTags.push('<span class="meta-tag">📍 ' + img.location + '</span>');
+      card.innerHTML =
+        '<div class="thumb"><img src="' + img.url + '" loading="lazy" alt="ผลงาน"></div>' +
+        '<div class="card-info">' +
+          '<div class="card-title">' + (img.title || 'ผลงาน') + '</div>' +
+          (metaTags.length ? '<div class="card-meta">' + metaTags.join('') + '</div>' : '') +
+          (img.desc ? '<div class="card-desc">' + img.desc + '</div>' : '') +
+        '</div>';
+      card.onclick = function() { openLightbox(img); };
+      gallery.appendChild(card);
     });
-}
-
-function renderCards(rows) {
-  const grid = document.getElementById('portfolio-grid');
-  if (!rows || rows.length === 0) {
-    grid.innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="opacity:.3;margin-bottom:12px"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg><p>ยังไม่มีผลงาน</p></div>`;
-    return;
   }
 
-  let totalPhotos = 0;
-  const clients = new Set();
-  const reversed = [...rows].reverse();
+  function initGallery() {
+    allImages = loadImages();
+    renderGallery(allImages);
+  }
 
-  grid.innerHTML = reversed.map((r, i) => {
-    const [date, name, client, loc, dur, desc, imgRaw] = r;
-    const imgs = imgRaw ? String(imgRaw).split('|').filter(Boolean) : [];
-    totalPhotos += imgs.length;
-    if (client) clients.add(client);
-    const dateStr = date ? new Date(date).toLocaleDateString('th-TH',{year:'numeric',month:'short',day:'numeric'}) : '';
-    const slides  = imgs.length > 0
-      ? imgs.map(u => `<div class="card-slide"><img src="${u}" alt="${name}" loading="lazy" onerror="this.style.display='none'"></div>`).join('')
-      : `<div class="card-slide"><div class="card-slide-empty">ไม่มีรูปภาพ</div></div>`;
+  function openModal() { document.getElementById('overlay').classList.add('open'); }
+  function closeModal() {
+    document.getElementById('overlay').classList.remove('open');
+    selectedFiles = [];
+    document.getElementById('dropLabel').textContent = 'คลิกหรือลากรูปมาวางตรงนี้';
+    document.getElementById('previewGrid').style.display = 'none';
+    document.getElementById('previewGrid').innerHTML = '';
+    document.getElementById('progressBar').style.display = 'none';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('statusMsg').textContent = '';
+    document.getElementById('statusMsg').className = 'status-msg';
+    document.getElementById('uploadBtn').disabled = false;
+    document.getElementById('fileInput').value = '';
+    ['fTitle','fClient','fDuration','fLocation','fDesc'].forEach(function(id) {
+      document.getElementById(id).value = '';
+    });
+  }
 
-    const multiControls = imgs.length > 1 ? `
-      <button class="slider-btn prev" onclick="cardSlide(event,${i},-1)">&#8249;</button>
-      <button class="slider-btn next" onclick="cardSlide(event,${i},1)">&#8250;</button>
-      <div class="slider-dots">${imgs.map((_,di) => `<button class="slider-dot${di===0?' active':''}" onclick="cardSlideTo(event,${i},${di})"></button>`).join('')}</div>
-      <div class="img-count-badge">${imgs.length} รูป</div>` : '';
+  function dragOver(e) { e.preventDefault(); document.getElementById('dropZone').classList.add('drag-over'); }
+  function dragLeave() { document.getElementById('dropZone').classList.remove('drag-over'); }
+  function dropFiles(e) {
+    e.preventDefault();
+    document.getElementById('dropZone').classList.remove('drag-over');
+    setFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+  }
+  function filesSelected(input) { setFiles(Array.from(input.files)); }
+  function setFiles(files) {
+    selectedFiles = files;
+    if (!files.length) return;
+    document.getElementById('dropLabel').textContent = 'เลือก ' + files.length + ' รูปแล้ว';
+    const grid = document.getElementById('previewGrid');
+    grid.innerHTML = ''; grid.style.display = 'grid';
+    files.slice(0, 4).forEach(function(f) {
+      const div = document.createElement('div'); div.className = 'preview-item';
+      const img = document.createElement('img'); img.src = URL.createObjectURL(f);
+      div.appendChild(img); grid.appendChild(div);
+    });
+  }
 
-    const safeR = JSON.stringify(r).replace(/"/g,'&quot;');
-    return `
-      <div class="card" onclick="openModal(${safeR})">
-        <div class="card-slider" id="slider-${i}">
-          <div class="card-slider-inner" id="slider-inner-${i}">${slides}</div>
-          ${multiControls}
-        </div>
-        <div class="card-body">
-          <div class="card-title">${name||'—'}</div>
-          <div class="card-meta">
-            ${client?`<span class="tag accent">${client}</span>`:''}
-            ${loc?`<span class="tag">📍 ${loc}</span>`:''}
-            ${dur?`<span class="tag">⏱ ${dur}</span>`:''}
-          </div>
-          <div class="card-desc">${desc||'<em style="opacity:.5">ไม่มีคำอธิบาย</em>'}</div>
-        </div>
-      </div>`;
-  }).join('');
+  async function startUpload() {
+    if (!selectedFiles.length) { alert('กรุณาเลือกรูปภาพก่อน'); return; }
+    const meta = {
+      title: document.getElementById('fTitle').value.trim() || 'ผลงาน',
+      client: document.getElementById('fClient').value.trim(),
+      duration: document.getElementById('fDuration').value.trim(),
+      location: document.getElementById('fLocation').value.trim(),
+      desc: document.getElementById('fDesc').value.trim(),
+      date: new Date().toLocaleDateString('th-TH')
+    };
+    const btn = document.getElementById('uploadBtn');
+    const status = document.getElementById('statusMsg');
+    const bar = document.getElementById('progressBar');
+    const fill = document.getElementById('progressFill');
+    btn.disabled = true; bar.style.display = 'block';
+    status.className = 'status-msg'; status.textContent = 'กำลังอัปโหลด...';
 
-  reversed.forEach((r, i) => {
-    cardSliders[i] = { idx: 0, total: (r[6] ? String(r[6]).split('|').filter(Boolean).length : 0) };
-  });
+    let done = 0;
+    const newImages = [];
+    for (const file of selectedFiles) {
+      try {
+        const fd = new FormData();
+        fd.append('file', file); fd.append('upload_preset', UPLOAD_PRESET);
+        const res = await fetch('https://api.cloudinary.com/v1_1/' + CLOUD_NAME + '/image/upload', { method: 'POST', body: fd });
+        const data = await res.json();
+        if (data.secure_url) newImages.push(Object.assign({ url: data.secure_url }, meta));
+      } catch(e) {}
+      done++;
+      fill.style.width = (done / selectedFiles.length * 100) + '%';
+      status.textContent = 'อัปโหลด ' + done + '/' + selectedFiles.length + ' รูป';
+    }
 
-  document.getElementById('stat-count').textContent   = rows.length;
-  document.getElementById('stat-clients').textContent = clients.size;
-  document.getElementById('stat-photos').textContent  = totalPhotos;
-}
-
-// ── Card Slider ────────────────────────────────────────────────────────────
-function cardSlide(e, id, dir) {
-  e.stopPropagation();
-  const s = cardSliders[id];
-  if (!s || s.total <= 1) return;
-  s.idx = (s.idx + dir + s.total) % s.total;
-  applyCardSlider(id);
-}
-function cardSlideTo(e, id, idx) {
-  e.stopPropagation();
-  cardSliders[id].idx = idx;
-  applyCardSlider(id);
-}
-function applyCardSlider(id) {
-  const s = cardSliders[id];
-  const inner = document.getElementById('slider-inner-' + id);
-  if (inner) inner.style.transform = `translateX(-${s.idx * 100}%)`;
-  const dots = document.querySelectorAll(`#slider-${id} .slider-dot`);
-  dots.forEach((d, i) => d.classList.toggle('active', i === s.idx));
-}
-
-// ── Modal ──────────────────────────────────────────────────────────────────
-function openModal(r) {
-  const [date, name, client, loc, dur, desc, imgRaw] = r;
-  modalImages = imgRaw ? String(imgRaw).split('|').filter(Boolean) : [];
-  modalIdx = 0;
-
-  const inner = document.getElementById('modal-slider-inner');
-  inner.innerHTML = modalImages.length > 0
-    ? modalImages.map(u => `<div class="modal-slide"><img src="${u}" alt="${name}"></div>`).join('')
-    : '';
-
-  document.getElementById('modal-slider').style.display = modalImages.length > 0 ? 'block' : 'none';
-  document.getElementById('modal-prev').style.display   = modalImages.length > 1 ? 'flex' : 'none';
-  document.getElementById('modal-next').style.display   = modalImages.length > 1 ? 'flex' : 'none';
-
-  const dotsEl = document.getElementById('modal-dots');
-  dotsEl.innerHTML = modalImages.length > 1
-    ? modalImages.map((_,i) => `<button class="modal-slider-dot${i===0?' active':''}" onclick="modalSlideTo(${i})"></button>`).join('') : '';
-
-  updateModalCounter();
-  document.getElementById('modal-title').textContent    = name||'—';
-  document.getElementById('modal-client').textContent   = client||'—';
-  document.getElementById('modal-location').textContent = loc||'—';
-  document.getElementById('modal-duration').textContent = dur||'—';
-  
-  // แปลงวันที่ ถ้ามีข้อมูล
-  let dateText = '—';
-  if (date) {
-    const d = new Date(date);
-    if (!isNaN(d.getTime())) {
-      dateText = d.toLocaleDateString('th-TH',{year:'numeric',month:'long',day:'numeric'});
+    if (newImages.length > 0) {
+      allImages = allImages.concat(newImages);
+      saveImages(allImages); renderGallery(allImages);
+      status.textContent = '✅ อัปโหลดสำเร็จ ' + newImages.length + ' รูป!';
+      status.className = 'status-msg ok';
+      setTimeout(closeModal, 1800);
+    } else {
+      status.textContent = '❌ อัปโหลดไม่สำเร็จ ลองใหม่';
+      status.className = 'status-msg err';
+      btn.disabled = false;
     }
   }
-  document.getElementById('modal-date').textContent = dateText;
-  document.getElementById('modal-desc').textContent = desc||'ไม่มีคำอธิบาย';
-  document.getElementById('modal').classList.add('open');
-}
 
-function modalSlide(dir) {
-  if (modalImages.length <= 1) return;
-  modalIdx = (modalIdx + dir + modalImages.length) % modalImages.length;
-  applyModalSlider();
-}
-function modalSlideTo(idx) {
-  modalIdx = idx;
-  applyModalSlider();
-}
-function applyModalSlider() {
-  document.getElementById('modal-slider-inner').style.transform = `translateX(-${modalIdx * 100}%)`;
-  document.querySelectorAll('.modal-slider-dot').forEach((d, i) => d.classList.toggle('active', i === modalIdx));
-  updateModalCounter();
-}
-function updateModalCounter() {
-  const el = document.getElementById('modal-counter');
-  el.textContent = modalImages.length > 1 ? `${modalIdx+1} / ${modalImages.length}` : '';
-}
-function closeModalOverlay(e) {
-  if (e.target === document.getElementById('modal')) document.getElementById('modal').classList.remove('open');
-}
+  function openLightbox(img) {
+    document.getElementById('lbImg').src = img.url;
+    const rows = [];
+    if (img.client) rows.push('<div class="lb-detail-item"><span class="lbl">👤 ผู้ว่าจ้าง</span><span class="val">' + img.client + '</span></div>');
+    if (img.duration) rows.push('<div class="lb-detail-item"><span class="lbl">⏱ ระยะเวลา</span><span class="val">' + img.duration + '</span></div>');
+    if (img.location) rows.push('<div class="lb-detail-item"><span class="lbl">📍 สถานที่</span><span class="val">' + img.location + '</span></div>');
+    if (img.desc) rows.push('<div class="lb-detail-item"><span class="lbl">📝 รายละเอียด</span><span class="val">' + img.desc + '</span></div>');
+    rows.push('<div class="lb-detail-item"><span class="lbl">📅 วันที่อัปโหลด</span><span class="val">' + img.date + '</span></div>');
+    document.getElementById('lbDetail').innerHTML =
+      '<div class="lb-detail-title">' + (img.title || 'ผลงาน') + '</div>' + rows.join('');
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
 
-// ── Init ──────────────────────────────────────────────────────────────────
-window.onload = loadPortfolio;
+  initGallery();
 </script>
 </body>
 </html>
